@@ -1,0 +1,5 @@
+*.pyc
+datasets/*
+models/*
+derby.log
+metastore_db/*
