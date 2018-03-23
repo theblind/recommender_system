@@ -38,7 +38,6 @@ def validata_model(training_RDD, validation_RDD, iterations=10):
     ranks = [4, 8, 12]
     regularizations = [0.1]
     result = {}
-    
     min_error = float("inf")
     best_rank = 0
     best_regularization = 0.1
@@ -56,7 +55,6 @@ def validata_model(training_RDD, validation_RDD, iterations=10):
             error = math.sqrt(rates_and_preds.map(
                 lambda r: (r[1][0] - r[1][1])**2).mean())
             print("For rank {} the RMSE is {}".format(rank, error))
-
             result[(rank, regularization)] = error
             if error < min_error:
                 min_error = error
@@ -85,7 +83,7 @@ def train_model(training_RDD, test_RDD, rank=8, regularization=0.1, iterations=1
 def main():
     # Read dataset
     dataset_path = os.path.join("datasets", "ml-20m")
-    ratings_file_path = os.path.join(dataset_path, "ratings.csv")
+    ratings_file_path = os.path.join(dataset_path, "ratings.dat")
     ratings_data = read_ratings(ratings_file_path)
 
     # Split data
