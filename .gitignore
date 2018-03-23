@@ -1,5 +1,6 @@
 *.pyc
 datasets/*
+!datasets/get_start.sh
 models/*
 derby.log
 metastore_db/*
